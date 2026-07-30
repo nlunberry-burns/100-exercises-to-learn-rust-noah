@@ -4,3 +4,7 @@ book/src/.obsidian
 book/src/.obsidian/appearance.json
 book/src/.obsidian/appearance.json
 book/src/.obsidian/workspace.json
+.obsidian/app.json
+.obsidian/appearance.json
+.gitignore
+.obsidian/core-plugins.json
