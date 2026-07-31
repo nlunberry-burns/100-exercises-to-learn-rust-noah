@@ -34,16 +34,14 @@ impl Ticket {
         }
     }
 
-    pub fn title(self) -> String {
-        self.title
+    pub fn title(&self) -> &str {
+        &self.title
     }
-
-    pub fn description(self) -> String {
-        self.description
-    }
-
-    pub fn status(self) -> String {
-        self.status
+    pub fn description(&self) -> &str {
+        &self.description
+    }        
+    pub fn status(&self) -> &str {
+        &self.status
     }
 }
 
@@ -57,7 +55,9 @@ mod tests {
         // If you change the signatures as requested, this should compile:
         // we can call these methods one after the other because they borrow `self`
         // rather than taking ownership of it.
-        assert_eq!(ticket.title(), "A title");
+
+        //sugar for: Ticket::title(&ticket) => private static method
+        assert_eq!(ticket.title(), "A title"); //private static function
         assert_eq!(ticket.description(), "A description");
         assert_eq!(ticket.status(), "To-Do");
     }
