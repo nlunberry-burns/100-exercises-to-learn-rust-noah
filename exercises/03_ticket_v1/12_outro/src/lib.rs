@@ -20,9 +20,9 @@ pub struct Order {
 
 impl Order {
     pub fn new(new_product_name: String, new_quantity: u16, new_unit_price: u16) -> Order{
-        valid_product_name(new_product_name);
-        valid_quantity(new_quantity);
-        valid_unit_price(new_unit_price);
+        valid_product_name(&new_product_name);
+        valid_quantity(&new_quantity);
+        valid_unit_price(&new_unit_price);
 
         Order {
             product_name: new_product_name,
@@ -47,7 +47,7 @@ impl Order {
     }
 
     pub fn set_product_name(&mut self, new_name: String) {
-        valid_product_name(new_name);
+        valid_product_name(&new_name);
         self.product_name = new_name;
     }
 
@@ -64,20 +64,20 @@ impl Order {
 
 }
 
-fn valid_product_name(new_product_name: String) {
+fn valid_product_name(new_product_name: &String) {
     if new_product_name.len() == 0 || new_product_name.len() > 300 {
         panic!("Invalid product name")
     }
 }
 
-fn valid_quantity(new_quantity: u16) {
-    if new_quantity == 0 {
+fn valid_quantity(new_quantity: &u16) {
+    if *new_quantity == 0 {
         panic!("Invalid quantity")
     }
 }
 
-fn valid_unit_price(new_unit_price: u16) {
-    if new_unit_price == 0 {
+fn valid_unit_price(new_unit_price: &   u16) {
+    if *new_unit_price == 0 {
         panic!("Invalid unit price")
     }
 } 

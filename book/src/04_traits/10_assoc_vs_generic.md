@@ -137,9 +137,9 @@ and generic parameters, there is only one `Output` type.
 
 To recap:
 
-- Use an **associated type** when the type must be uniquely determined for a given trait implementation.
+- Use an **associated type** when the type must be uniquely determined for a given trait implementation.  So only one implementation of this trait for a given type, and the output needs to be specific. 
 - Use a **generic parameter** when you want to allow multiple implementations of the trait for the same type,
-  with different input types.
+  with different input types. *can have multiple implementations depending on the input*
 
 [^flexible]: Flexibility is rarely free: the trait definition is more complex due to `Output`, and implementors have to reason about
 what they want to return. The trade-off is only justified if that flexibility is actually needed. Keep that in mind

@@ -1,4 +1,4 @@
-# Derive macros
+ Derive macros
 
 Implementing `PartialEq` for `Ticket` was a bit tedious, wasn't it?
 You had to manually compare each field of the struct.

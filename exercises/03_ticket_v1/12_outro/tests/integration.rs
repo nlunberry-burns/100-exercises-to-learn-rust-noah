@@ -1,7 +1,7 @@
 use outro_02::Order;
 
 // Files inside the `tests` directory are only compiled when you run tests.
-// As a consequence, we don't need the `#[cfg(test)]` attribute for conditional compilation—it's
+// As a confsequence, we don't need the `#[cfg(test)]` attribute for conditional compilation—it's
 // implied.
 
 #[test]

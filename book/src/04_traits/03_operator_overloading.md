@@ -1,7 +1,7 @@
 # Operator overloading
 
 Now that we have a basic understanding of what traits are, let's circle back to **operator overloading**.
-Operator overloading is the ability to define custom behavior for operators like `+`, `-`, `*`, `/`, `==`, `!=`, etc.
+Operator overloading is the ability to **define custom behavior** for operators like `+`, `-`, `*`, `/`, `==`, `!=`, etc.
 
 ## Operators are traits
 
@@ -80,7 +80,7 @@ impl PartialEq for WrappingU8 {
 }
 ```
 
-You are not forced to use the default implementation though.
+You are *not forced* to use the default implementation though.
 You can choose to override it when you implement the trait:
 
 ```rust

@@ -13,6 +13,52 @@
 // You don't have to though: it's perfectly okay to write three separate
 // implementations manually. Venture further only if you're curious.
 
+
+pub trait Power<T> { //Making a generic trait? I think this is correct
+    fn power(self, value: T) -> Self;
+}
+
+impl Power<u16> for u32 {
+    fn power(self, value: u16) -> Self {
+        let mut x = value;
+        let mut y = 1;
+
+        while x != 0 {
+            y = y * self;
+            x -= 1;
+        }
+        y
+    }
+} 
+
+//
+
+impl Power<u32> for u32 {
+    fn power(self, value: u32) -> Self {
+        let mut x = value;
+        let mut y = 1;
+
+        while x != 0 {
+            y = y * self;
+            x -= 1;
+        }
+        y
+    }
+} 
+
+impl Power<&u32> for u32 {
+    fn power(self, value: &u32) -> Self {
+        let mut x = *value;
+        let mut y = 1;
+
+        while x != 0 {
+            y = y * self;
+            x -= 1;
+        }
+        y
+    }
+} 
+
 #[cfg(test)]
 mod tests {
     use super::Power;

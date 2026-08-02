@@ -3,6 +3,8 @@
 When a type is defined in another crate (e.g. `u32`, from Rust's standard library), you
 can't directly define new methods for it. If you try:
 
+//but you can add traits to them
+
 ```rust
 impl u32 {
     fn is_even(&self) -> bool {
