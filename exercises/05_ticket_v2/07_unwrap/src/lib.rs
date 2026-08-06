@@ -1,18 +1,24 @@
 use core::error;
+use std::os::linux::raw::stat;
 
 // TODO: `easy_ticket` should panic when the title is invalid.
 //   When the description is invalid, instead, it should use a default description:
 //   "Description not provided".
 fn easy_ticket(title: String, description: String, status: Status) -> Ticket {
-    let mut x = Ticket::new(title, description, status);
+    let title_test = title.clone();
+    let stat = status.clone();
+    let x = Ticket::new(title, description, status);
     match x {
-        Ok(answer) => x,
-        match Err(error) {
-            "Descrption cannot be empty".into() | "Description cannot be longer than 500 bytes".into() => {
-                
+        Ok(ticket) => ticket,
+        Err(err) => {
+            if err.contains("Description") {
+                Ticket::new(title_test, "Description not provided".into(), stat).unwrap()
+            } else {
+                panic!("{}", err);
             }
         }
     }
+
 }
 
 #[derive(Debug, PartialEq, Clone)]
